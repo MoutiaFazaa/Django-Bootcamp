@@ -4,11 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Guitar page</title>
+    <title>MTV done</title>
     <link rel="stylesheet" href="{% static "CSS/mystyle.css" %}"/>
 </head>
 <body>
-    <h1>Hello this is Django guitar</h1>
-    <img src="{% static "images/django-1.jpg" %}" alt="Uh Oh, didn't Show!">
+    <h1> welcome to django level 2!</h1>
+    <h2>here are youre access record:</h2> 
+
+    <div class='djangotwo'>
+        {% if access_records %}
+        <table>
+            <thead>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+            </thead>
+            {% for acc in access_records %}
+            <tr>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No access records found!</p>
+        {% endif %}
+    </div>
 </body>
 </html>
